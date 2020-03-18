@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_PATH" value="/usr/local/elogs"></property>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %line - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- This is the ReporterAppender -->
+    <!--<appender name="TestNG" class="com.github.sbabcoc.logback.testng.ReporterAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>-->
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+        <!--<appender-ref ref="TestNG" />-->
+    </root>
+
+    <appender name="clientUserLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_PATH}/es/client-user/user.%d{yyyyMMdd}-%i.log</FileNamePattern>
+            <MaxHistory>180</MaxHistory>
+            <maxFileSize>200MB</maxFileSize>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger level="trace" name="org.springframework.web">
+        <appender-ref ref="clientUserLog"/>
+    </logger>
+</configuration>

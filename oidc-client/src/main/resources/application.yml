@@ -1,0 +1,30 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /oidcSystem
+#security:
+#  oauth2:
+#    client:
+#      client-id: UserManagement
+#      client-secret: user123
+#      access-token-uri: http://192.168.101.46:8080/oauth/token
+#      user-authorization-uri: http://192.168.101.46:8080/oauth/authorize
+#    resource:
+#      jwt:
+#        key-uri: http://192.168.101.46:8080/oauth/token_key
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        web: trace
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          oidc:
+            client-id: OidcManagement
+            client-secret: user123
+        provider:
+          oidc:
+            issuer-uri: http://192.168.101.46:8080/

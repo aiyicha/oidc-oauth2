@@ -1,0 +1,19 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /memberSystem
+security:
+  oauth2:
+    client:
+      client-id: UserManagement
+      client-secret: user123
+      access-token-uri: http://192.168.101.46:8080/oauth/token
+      user-authorization-uri: http://192.168.101.46:8080/oauth/authorize
+    resource:
+      jwt:
+        key-uri: http://192.168.101.46:8080/oauth/token_key
+logging:
+  level:
+    org:
+      springframework:
+        web: trace

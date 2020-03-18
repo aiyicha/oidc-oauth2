@@ -1,0 +1,20 @@
+package com.auth2.server.repository;
+
+import com.auth2.server.entity.SysPermission;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
+
+/**
+ * @author baizh@enlink.cn
+ * @date 2020/3/2
+ */
+public interface SysPermissionRepository extends JpaSpecificationExecutor<SysPermission>, JpaRepository<SysPermission, Integer> {
+
+    @Query(value = "SELECT * FROM sys_permission WHERE id IN (?ids)", nativeQuery = true)
+    List<SysPermission> findByIds(@Param("ids") List<Integer> ids);
+
+}
