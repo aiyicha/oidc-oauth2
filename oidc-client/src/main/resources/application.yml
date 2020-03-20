@@ -28,3 +28,4 @@ spring:
         provider:
           oidc:
             issuer-uri: http://192.168.101.46:8080/
+            jwk-set-uri: http://192.168.101.46:8080/jwk

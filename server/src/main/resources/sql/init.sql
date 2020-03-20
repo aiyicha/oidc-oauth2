@@ -245,6 +245,7 @@ CREATE TABLE IF NOT EXISTS user_info (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	sub VARCHAR(256),
 	preferred_username VARCHAR(256),
+	password VARCHAR(256),
 	name VARCHAR(256),
 	given_name VARCHAR(256),
 	family_name VARCHAR(256),
@@ -380,4 +381,10 @@ CREATE TABLE IF NOT EXISTS device_code_request_parameter (
 	owner_id BIGINT,
 	param VARCHAR(2048),
 	val VARCHAR(2048)
+);
+
+create table IF NOT EXISTS authorities (
+    id BIGINT,
+    user_id BIGINT,
+    authority varchar(50) not null
 );

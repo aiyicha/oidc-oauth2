@@ -19,12 +19,7 @@ package org.mitre.jwt.signer.service.impl;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 import org.mitre.jose.keystore.JWKSetKeyStore;
 import org.mitre.jwt.signer.service.JWTSigningAndValidationService;
@@ -309,6 +304,16 @@ public class DefaultJWTSigningAndValidationService implements JWTSigningAndValid
 
 		return algs;
 
+	}
+
+	@Override
+	public Map<String, JWSSigner> getSigners() {
+		return signers;
+	}
+
+	@Override
+	public Map<String, JWK> getKeys() {
+		return keys;
 	}
 
 }

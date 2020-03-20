@@ -1,4 +1,4 @@
-package com.auth2.oidc_client;
+package com.auth2.auth_client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -178,7 +178,7 @@ public class TofuUserApprovalHandler implements UserApprovalHandler {
 
 			// process scopes from user input
 			Set<String> allowedScopes = Sets.newHashSet();
-			Map<String,String> approvalParams = authorizationRequest.getApprovalParameters();
+			Map<String, String> approvalParams = authorizationRequest.getApprovalParameters();
 
 			Set<String> keys = approvalParams.keySet();
 
@@ -201,7 +201,8 @@ public class TofuUserApprovalHandler implements UserApprovalHandler {
 			}
 
 			// inject the user-allowed scopes into the auth request
-			authorizationRequest.setScope(allowedScopes);
+			// allow all client scopes, modify this logic later!
+			//authorizationRequest.setScope(allowedScopes);
 
 			//Only store an ApprovedSite if the user has checked "remember this decision":
 			String remember = authorizationRequest.getApprovalParameters().get("remember");

@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import com.nimbusds.jose.JWSAlgorithm;
+import com.nimbusds.jose.JWSSigner;
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jwt.SignedJWT;
 
@@ -76,6 +77,10 @@ public interface JWTSigningAndValidationService {
 	public void signJwt(SignedJWT jwt, JWSAlgorithm alg);
 
 	public String getDefaultSignerKeyId();
+
+	public Map<String, JWSSigner> getSigners();
+
+	public Map<String, JWK> getKeys();
 
 	/**
 	 * TODO: method to sign a jwt using a specified algorithm and a key id

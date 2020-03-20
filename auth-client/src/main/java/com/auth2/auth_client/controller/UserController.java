@@ -1,4 +1,4 @@
-package com.auth2.oidc_client.controller;
+package com.auth2.auth_client.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

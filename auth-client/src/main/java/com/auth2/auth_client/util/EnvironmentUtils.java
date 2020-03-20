@@ -1,4 +1,4 @@
-package com.auth2.oidc_client.util;
+package com.auth2.auth_client.util;
 
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;

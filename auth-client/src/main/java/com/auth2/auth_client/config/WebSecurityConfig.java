@@ -1,6 +1,6 @@
-package com.auth2.oidc_client.config;
+package com.auth2.auth_client.config;
 
-import com.auth2.oidc_client.util.EnvironmentUtils;
+import com.auth2.auth_client.util.EnvironmentUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Configuration;

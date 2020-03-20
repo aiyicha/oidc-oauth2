@@ -24,6 +24,14 @@ import com.google.gson.JsonObject;
 
 public interface UserInfo extends Serializable {
 
+	public Long getId();
+
+	public void setId(Long id);
+
+	public String getPassword();
+
+	public void setPassword(String password);
+
 	/**
 	 * @return the userId
 	 */

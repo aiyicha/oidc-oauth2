@@ -1,4 +1,4 @@
-package com.auth2.oidc_client.domain;
+package com.auth2.auth_client.domain;
 
 import lombok.Data;
 

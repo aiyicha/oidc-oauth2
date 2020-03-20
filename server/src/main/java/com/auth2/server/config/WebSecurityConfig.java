@@ -5,6 +5,7 @@ import com.auth2.server.openid.connect.assertion.JWTBearerClientAssertionTokenEn
 import com.auth2.server.openid.connect.filter.MultiUrlRequestMatcher;
 import com.auth2.server.openid.connect.service.impl.DefaultUserInfoService;
 import com.auth2.server.service.MyUserDetailsService;
+import com.auth2.server.service.OwnUserDetailsService;
 import org.mitre.oauth2.service.OAuth2TokenEntityService;
 import org.mitre.openid.connect.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyUserDetailsService userDetailsService;
 
+    @Autowired
+    private OwnUserDetailsService ownUserDetailsService;
+
     @Resource(name="clientUserDetailsService")
     private UserDetailsService clientUserDetailsService;
 
@@ -55,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(ownUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -86,7 +90,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/authorize").hasRole("USER")
                 .antMatchers("/login",
                         "/.well-known/**",
-                        "/jwk**")
+                        "/jwk**",
+                        "/cas/**")
                 .permitAll()
 
                 //.and().requestMatchers(new AntPathRequestMatcher("/devicecode/**", "/revoke**", "/introspect**"))

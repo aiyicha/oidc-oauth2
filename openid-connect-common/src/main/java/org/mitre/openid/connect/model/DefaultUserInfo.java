@@ -58,6 +58,7 @@ public class DefaultUserInfo implements UserInfo {
 
 	private Long id;
 	private String sub;
+	private String password;
 	private String preferredUsername;
 	private String name;
 	private String givenName;
@@ -86,18 +87,31 @@ public class DefaultUserInfo implements UserInfo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
+	@Override
 	public Long getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
+	@Override
 	public void setId(Long id) {
 		this.id = id;
 	}
 	/* (non-Javadoc)
 	 * @see org.mitre.openid.connect.model.UserInfo#getUserId()
 	 */
+	@Override
+	@Basic
+	@Column(name="password")
+	public String getPassword() {
+		return password;
+	}
+	@Override
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	@Basic
 	@Column(name="sub")
@@ -428,7 +442,7 @@ public class DefaultUserInfo implements UserInfo {
 			JsonObject obj = new JsonObject();
 
 			obj.addProperty("sub", this.getSub());
-
+			obj.addProperty("password", this.getPassword());
 			obj.addProperty("name", this.getName());
 			obj.addProperty("preferred_username", this.getPreferredUsername());
 			obj.addProperty("given_name", this.getGivenName());
@@ -472,7 +486,7 @@ public class DefaultUserInfo implements UserInfo {
 
 	/**
 	 * Parse a JsonObject into a UserInfo.
-	 * @param o
+	 * @param obj
 	 * @return
 	 */
 	public static UserInfo fromJson(JsonObject obj) {
@@ -480,7 +494,7 @@ public class DefaultUserInfo implements UserInfo {
 		ui.setSource(obj);
 
 		ui.setSub(nullSafeGetString(obj, "sub"));
-
+		ui.setPassword(nullSafeGetString(obj, "password"));
 		ui.setName(nullSafeGetString(obj, "name"));
 		ui.setPreferredUsername(nullSafeGetString(obj, "preferred_username"));
 		ui.setGivenName(nullSafeGetString(obj, "given_name"));
@@ -495,7 +509,6 @@ public class DefaultUserInfo implements UserInfo {
 		ui.setLocale(nullSafeGetString(obj, "locale"));
 		ui.setUpdatedTime(nullSafeGetString(obj, "updated_at"));
 		ui.setBirthdate(nullSafeGetString(obj, "birthdate"));
-
 		ui.setEmail(nullSafeGetString(obj, "email"));
 		ui.setEmailVerified(obj.has("email_verified") && obj.get("email_verified").isJsonPrimitive() ? obj.get("email_verified").getAsBoolean() : null);
 
@@ -531,7 +544,7 @@ public class DefaultUserInfo implements UserInfo {
 	}
 
 	/**
-	 * @param jsonString the jsonString to set
+	 * @param src the jsonString to set
 	 */
 	public void setSource(JsonObject src) {
 		this.src = src;
