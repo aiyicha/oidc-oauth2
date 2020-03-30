@@ -14,7 +14,7 @@
         </encoder>
     </appender>-->
 
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="STDOUT" />
         <!--<appender-ref ref="TestNG" />-->
     </root>
@@ -30,7 +30,7 @@
         </encoder>
     </appender>
 
-    <logger level="trace" name="org.springframework.web">
-        <appender-ref ref="clientUserLog"/>
-    </logger>
+<!--    <logger level="trace" name="org.springframework.web">-->
+<!--        <appender-ref ref="clientUserLog"/>-->
+<!--    </logger>-->
 </configuration>

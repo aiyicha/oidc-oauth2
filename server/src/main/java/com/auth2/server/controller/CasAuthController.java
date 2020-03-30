@@ -7,16 +7,13 @@
  */
 package com.auth2.server.controller;
 
-import com.auth2.server.service.OwnUserDetailsService;
 import com.auth2.server.utils.CasUtils;
 import org.mitre.openid.connect.model.UserInfo;
 import org.mitre.openid.connect.repository.UserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -120,10 +117,10 @@ public class CasAuthController {
 
         String s = "<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>\n" +
                 "    <cas:authenticationSuccess>\n" +
-                "        <cas:user>" + "aaa" + "</cas:user>\n" +
+                "        <cas:user>" + "zhangsan" + "</cas:user>\n" +
                 "           <cas:attributes>\n" +
                 "               <cas:nickname>"+"sb"+"</cas:nickname>\n" +
-                "               <cas:username>"+"aaa"+"</cas:username>\n" +
+                "               <cas:username>"+"zhangsan"+"</cas:username>\n" +
                 "               <cas:telephone>"+"12345612345"+"</cas:telephone>\n" +
                 "               <cas:email>"+"aaa.com"+"</cas:email>\n" +
                 "           </cas:attributes>"+

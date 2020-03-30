@@ -23,9 +23,11 @@ spring:
       client:
         registration:
           oidc:
-            client-id: OidcManagement
-            client-secret: user123
+#            client-id: OidcManagement
+#            client-secret: user123
+            client-id: 44f65b3d-d1a3-4cee-9745-7da4cf4f4487
+            client-secret: Z53Cvk_Si4wFS_kzZrTHopgcOiT-pQf7BsVYosLUZKv1ipuOFWq-4c_gRdVEt2U2u6eHMe6Y_PgLeynGa0GHpg
         provider:
           oidc:
             issuer-uri: http://192.168.101.46:8080/
-            jwk-set-uri: http://192.168.101.46:8080/jwk
+#            jwk-set-uri: http://192.168.101.46:8080/jwk

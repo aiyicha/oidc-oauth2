@@ -11,7 +11,7 @@
 	<groupId>com.auth2.demo</groupId>
 	<artifactId>oidc-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>oidc-client</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

@@ -7,11 +7,18 @@ security:
     client:
       client-id: UserManagement
       client-secret: user123
-      access-token-uri: http://192.168.101.46:8080/oauth/token
-      user-authorization-uri: http://192.168.101.46:8080/oauth/authorize
+#      client-id: 44f65b3d-d1a3-4cee-9745-7da4cf4f4487
+#      client-secret: Z53Cvk_Si4wFS_kzZrTHopgcOiT-pQf7BsVYosLUZKv1ipuOFWq-4c_gRdVEt2U2u6eHMe6Y_PgLeynGa0GHpg
+#      access-token-uri: http://192.168.101.46:8888/oauth/token
+#      user-authorization-uri: http://192.168.101.46:8888/oauth/authorize
+#    resource:
+#      jwt:
+#        key-uri: http://192.168.101.46:8888/oauth/token_key
+      access-token-uri: https://eniam.oauth.casbs.cn:2443/api/oauth/token
+      user-authorization-uri: https://eniam.oauth.casbs.cn:2443/api/oauth/authorize
     resource:
       jwt:
-        key-uri: http://192.168.101.46:8080/oauth/token_key
+        key-uri: https://eniam.oauth.casbs.cn:2443/api/oauth/token_key
 logging:
   level:
     org:
